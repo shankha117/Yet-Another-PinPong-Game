@@ -1,0 +1,78 @@
+<Popclass>:
+    Label:
+        text: str(root.winner) + " won!"
+        size_hint: 0.6, 0.2
+        pos_hint: {"x":0.2, "top":1}
+
+    Button:
+        background_normal: 'normal3.png'
+
+        # To round the corners we use border
+        border: 30, 30, 30, 30
+
+        # Adding background color to button you can comment it
+        background_color: 0.1, 0.5, 0.6, 1
+        text: "restart the game ?"
+        size_hint: 1, 0.4
+        pos_hint: {"x":0, "y":0.1}
+        on_release: root.btn()
+
+
+<PongBat>:
+    size: 20,200
+    canvas:
+        Color:
+            hsv: 0,0,0,1
+            a: 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+
+<PongBall>:
+    size: 50,50
+    canvas:
+        Color:
+            hsv: 0, 1, 1
+            a: 1
+        Ellipse:
+            pos: self.pos
+            size: self.size
+
+<PongGame>:
+    ball : pong_ball
+    player_left: p1
+    player_right: p2
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "24724848.jpg"
+
+    Label:
+        font_size: 50
+        color: 0,0,0,1
+        center_x: root.width / 4
+        top: root.top - 50
+        text : "Player1 : "+str(root.player_left.score)
+
+    Label:
+        font_size: 50
+        color: 0,0,0,1
+        center_x: root.width * 3/4
+        top: root.top - 50
+        text : "Player2 : "+str(root.player_right.score)
+
+    PongBall:
+        id: pong_ball
+        center: root.center
+
+    PongBat:
+        id: p1
+        x: root.x
+        center_y : root.center_y
+
+    PongBat:
+        id: p2
+        x: root.width - self.width
+        center_y : root.center_y
