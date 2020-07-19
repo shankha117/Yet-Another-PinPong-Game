@@ -1,4 +1,8 @@
-## **`Yet Another PinPong-Game`**
+## **`Yet Another PinPong-Game Made With Kivy`**
+
+### Android file with Buildozer
+    * https://kivy.org/doc/stable/guide/packaging-android.html 
+        
 
 ## :rocket:&nbsp;**`Run Project`**
 
